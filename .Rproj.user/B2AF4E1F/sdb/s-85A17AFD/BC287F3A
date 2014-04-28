@@ -1,0 +1,17 @@
+{
+    "contents" : "###################################\n# Script for importing the dataset.\n###################################\n# Note. The file below includes missing as N/A\nFACES2006_missing <- read.csv(\"~/Dropbox/Faces 2006/Ready2Go/FACES_2006_Missing_NoLabel.csv\")\n",
+    "created" : 1398696909502.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2499785569",
+    "id" : "BC287F3A",
+    "lastKnownWriteTime" : 1398696919,
+    "path" : "~/Git Repositories/Longitudinal_SEM_Panel_FACES2006/import_data.r",
+    "project_path" : "import_data.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
