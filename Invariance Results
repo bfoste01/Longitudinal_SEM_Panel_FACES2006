@@ -1,8 +1,15 @@
 Invariance Results
 ----------------------------------------------------
-Configural
-All 3 constructs pass without issue
+CONFIGURAL
+All 3 constructs pass without issue when tested indivudally
 Atl (PLBS) + Cog = converges normally - fit is great
 AtL (PLBS) + Prob BeH = fails to converge normally - negatives in cov.ov - fit ok to bad
   Offending indicators: "persistent"" not playing nice - negative on all axis (might be too large to fix to 0)
-Prob + Cog = 
+Prob + Cog = fails to converge normally - negatives in cov.ov matrix - fit is great
+  Offending indicators: "WJ AP" and "Hyper", though none on the diagnol- but output looks ok (MPlus overide vs. lavaan?)
+AtL (PLBS) + Cog = converges normally - fit is great
+AtL (P, T, PLBS) + Prob = fails to converge normally - cov.lv negative - fit is ok
+  Offending constructs: Prob and AtL over -1
+AtL (P, T, PLBS) + Cog = converges normally - fit is great
+
+Summary: No matter how you parse the PLBS it behaves badly with the Problem BeH construct, so we know this ahead of testing for 3 factors, but suspect fit will be bad for 3 facotrs and there will be some adjustments to do

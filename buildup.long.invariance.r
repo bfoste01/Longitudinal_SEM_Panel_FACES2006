@@ -265,7 +265,7 @@ A2WJLWW ~~ A3WJLWW
 A2WJLWW ~~ A4WJLWW
 A3WJLWW ~~ A4WJLWW
 '
-fit5 <- cfa(long.invar5, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE, meanstructure=TRUE) 
+fit5 <- cfa(long.invar5, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE) 
 summary(fit5, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit5, "cov.lv") 
 inspect(fit5, "cov.ov") # always good to look for negatives
@@ -352,7 +352,7 @@ R2BWITH ~~ R3BWITH
 R2BWITH ~~ KR4BWITH
 R3BWITH ~~ KR4BWITH
 '
-fit6 <- cfa(long.invar6, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE, meanstructure=TRUE) 
+fit6 <- cfa(long.invar6, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE) 
 summary(fit6, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit6, "cov.lv") 
 inspect(fit6, "cov.ov") # always good to look for negatives
@@ -437,7 +437,7 @@ R2BWITH ~~ R3BWITH
 R2BWITH ~~ KR4BWITH
 R3BWITH ~~ KR4BWITH
 '
-fit7 <- cfa(long.invar7, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE, meanstructure=TRUE) 
+fit7 <- cfa(long.invar7, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE) 
 summary(fit7, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit7, "cov.lv") 
 inspect(fit7, "cov.ov") # always good to look for negatives
@@ -522,7 +522,7 @@ A2WJLWW ~~ A3WJLWW
 A2WJLWW ~~ A4WJLWW
 A3WJLWW ~~ A4WJLWW
 '
-fit8 <- cfa(long.invar8, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE, meanstructure=TRUE) 
+fit8 <- cfa(long.invar8, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE) 
 summary(fit8, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit8, "cov.lv") 
 inspect(fit8, "cov.ov") # always good to look for negatives
@@ -607,8 +607,95 @@ R2BWITH ~~ R3BWITH
 R2BWITH ~~ KR4BWITH
 R3BWITH ~~ KR4BWITH
 '
-fit9 <- cfa(long.invar9, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE, meanstructure=TRUE) 
+fit9 <- cfa(long.invar9, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE) 
 summary(fit9, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit9, "cov.lv") 
 inspect(fit9, "cov.ov") # always good to look for negatives
 #------------------------------------------------------
+# AtL parent teacher Prob
+long.invar10 <- '
+atl1 =~ L25*P1SSPAL + L26*R1SSRS + L27*R1TPLBS
+atl2 =~ L28*P2SSPAL + L29*R2SSRS + L30*R2TPLBS
+atl3 =~ L31*P3PSSPAL + L32*R3SSRS + R33*R3TPLBS
+atl4 =~ L34*P4PSSPAL + L35*KR4SSRS + L36*KR4TPLBS
+
+cog1 =~ A1PPVT4W + A1WJAPW + A1WJLWW
+cog2 =~ A2PPVT4W + A2WJAPW + A2WJLWW
+cog3 =~ A3PPVT4W + A3WJAPW + A3WJLWW
+cog4 =~ A4PPVT4W + A4WJAPW + A4WJLWW
+
+P1SSPAL ~~ P1SSPAL
+R1SSRS ~~ R1SSRS
+R1TPLBS ~~ R1TPLBS
+P2SSPAL ~~ P2SSPAL
+R2SSRS ~~ R2SSRS
+R2TPLBS ~~ R2TPLBS
+P3PSSPAL ~~ P3PSSPAL
+R3SSRS ~~ R3SSRS
+R3TPLBS ~~ R3TPLBS
+P4PSSPAL ~~ P4PSSPAL
+KR4SSRS ~~ KR4SSRS
+KR4TPLBS ~~ KR4TPLBS
+
+P1SSPAL ~~ P2SSPAL
+P1SSPAL ~~ P3PSSPAL
+P1SSPAL ~~ P4PSSPAL
+P2SSPAL ~~ P3PSSPAL
+P2SSPAL ~~ P4PSSPAL
+P3PSSPAL ~~ P4PSSPAL
+
+R1SSRS ~~ R2SSRS
+R1SSRS ~~ R3SSRS
+R1SSRS ~~ KR4SSRS
+R2SSRS ~~ R3SSRS
+R2SSRS ~~ KR4SSRS
+R3SSRS ~~ KR4SSRS
+
+R1TPLBS ~~ R2TPLBS
+R1TPLBS ~~ R3TPLBS
+R1TPLBS ~~ KR4TPLBS
+R2TPLBS ~~ R3TPLBS
+R2TPLBS ~~ KR4TPLBS
+R3TPLBS ~~ KR4TPLBS
+
+A1PPVT4W ~~ A1PPVT4W
+A1WJAPW ~~ A1WJAPW
+A1WJLWW ~~ A1WJLWW
+A2PPVT4W ~~ A2PPVT4W
+A2WJAPW ~~ A2WJAPW
+A2WJLWW ~~ A2WJLWW
+A3PPVT4W ~~ A3PPVT4W
+A3WJAPW ~~ A3WJAPW
+A3WJLWW ~~ A3WJLWW
+A4PPVT4W ~~ A4PPVT4W
+A4WJAPW ~~ A4WJAPW
+A4WJLWW ~~ A4WJLWW
+
+A1PPVT4W ~~ A2PPVT4W
+A1PPVT4W ~~ A3PPVT4W
+A1PPVT4W ~~ A4PPVT4W
+A2PPVT4W ~~ A3PPVT4W
+A2PPVT4W ~~ A4PPVT4W
+A3PPVT4W ~~ A4PPVT4W
+
+A1WJAPW ~~ A2WJAPW
+A1WJAPW ~~ A3WJAPW
+A1WJAPW ~~ A4WJAPW
+A2WJAPW ~~ A3WJAPW
+A2WJAPW ~~ A4WJAPW
+A3WJAPW ~~ A4WJAPW
+
+A1WJLWW ~~ A2WJLWW
+A1WJLWW ~~ A3WJLWW
+A1WJLWW ~~ A4WJLWW
+A2WJLWW ~~ A3WJLWW
+A2WJLWW ~~ A4WJLWW
+A3WJLWW ~~ A4WJLWW
+'
+fit10 <- cfa(long.invar10, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE) 
+summary(fit10, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
+inspect(fit10, "cov.lv") 
+inspect(fit10, "cov.ov") # always good to look for negatives
+#------------------------------------------------------------
+# Testing for 3 factors
+# PLBS(AtL) + COG + PROB
