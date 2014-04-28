@@ -15,10 +15,20 @@ Summary: No matter how you parse the PLBS it behaves badly with the Problem BeH 
 ----------------------------------------------------
 Three Factor
 10. Atl (PLBS) + Cog + Prob = fails to converge normally - cov.ov is negative - fit is ok
-  Offending indicators: Persist near -3
+  Offending indicators: "Persist" and "withdrawn""
 11. Atl (Parent + Teacher + PLBS) + Cog + Prob = fails to converge normally - cov.lv is negative - fit is good
   Offending construct: Prob and AtL are linear codependent
 
-Summary: My hunch is that in the end AtL and Prob are going to give us issues. At this point the best way to proceed is to fix the negative variances on the diagnol of cov.ov to 0 and see how this runs. Also, I have not checked the modification indicides yet. I suspect that the indicators will cross load on AtL, specically persistent and hyperactive. If this is the case then I think we are back to drawing board with this model or trying a 2 indicator factor solution for Problem BeH, and borrowing info from other parts of the model.Another thing that might be an issue is the first lag is half a year and subsquent lags are a year
+Summary: My hunch is that in the end AtL and Prob are going to give us issues. At this point the best way to proceed is to fix the negative variances on the diagnol of cov.ov to 0 and see how this runs. Also, I have not checked the modification indicides yet. I suspect that the indicators will cross load on AtL, specically persistent and hyperactive. If this is the case then I think we are back to drawing board with this model or trying a 2 indicator factor solution for Problem BeH, and borrowing info from other parts of the model.Another thing that might be an issue is the first lag is half a year and subsquent lags are a year. Also, I you can't model Problem BeH with a Poisson distribution, as it is a count variable. I don't think this will change things that much though, as on it's own Problem BeH fits great. The other options would be to apply a gentel ridge push (e-1.05) to the diagnol of cov.ov, but I don't suspect this would change things much either. 
 
+I predict the best way to proceede would be to look at AtL and cognitive development, maybe condition the model on Problem BeH and other variables of interst
+----------------------------------------------------
+Three Factor Model Modification
+
+First, I am going to fix the negative variances of all 4 "persist" indicators
+10.b.Atl (PLBS) + Cog + Prob = fails to converge normally - 
+  Offending constructs: AtL and Prob BeH slight linear co-dependency in cov.lv. 
+
+Summary: AtL and Prob does not play nice together 
+----------------------------------------------------
 
