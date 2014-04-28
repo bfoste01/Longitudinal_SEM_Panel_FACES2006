@@ -3,7 +3,7 @@ Invariance Results
 CONFIGURAL
 All 3 constructs pass without issue when tested indivudally
 5. Atl (PLBS) + Cog = converges normally - fit is great
-6. AtL (PLBS) + Cog = fails to converge normally - negatives in cov.ov - fit ok to bad
+6. AtL (PLBS) + Prob = fails to converge normally - negatives in cov.ov - fit ok to bad
   Offending indicators: "persistent"" not playing nice - negative on all axis (might be too large to fix to 0)
 7. Prob + Cog = fails to converge normally - cov.ov negative - fit is great
   Offending indicators: "WJ Ap" and "Hyper"
@@ -19,7 +19,7 @@ Three Factor
 11. Atl (Parent + Teacher + PLBS) + Cog + Prob = fails to converge normally - cov.lv is negative - fit is good
   Offending construct: Prob and AtL are linear codependent
 
-Summary: My hunch is that in the end AtL and Prob are going to give us issues. At this point the best way to proceed is to fix the negative variances on the diagnol of cov.ov to 0 and see how this runs. Also, I have not checked the modification indicides yet. I suspect that the indicators will cross load on AtL, specically persistent and hyperactive. If this is the case then I think we are back to drawing board with this model or trying a 2 indicator factor solution for Problem BeH, and borrowing info from other parts of the model.Another thing that might be an issue is the first lag is half a year and subsquent lags are a year. Also, I you can't model Problem BeH with a Poisson distribution, as it is a count variable. I don't think this will change things that much though, as on it's own Problem BeH fits great. The other options would be to apply a gentel ridge push (e-1.05) to the diagnol of cov.ov, but I don't suspect this would change things much either. 
+Summary: My hunch is that in the end AtL and Prob are going to give us issues. At this point the best way to proceed is to fix the negative variances on the diagnol of cov.ov to 0 and see how this runs. Also, I have not checked the modification indicides yet. I suspect that the indicators will cross load on AtL, specically persistent and hyperactive. If this is the case then I think we are back to drawing board with this model or trying a 2 indicator factor solution for Problem BeH, and borrowing info from other parts of the model.Another thing that might be an issue is the first lag is half a year and subsquent lags are a year. Also, I you can't model Problem BeH with a Poisson distribution, as it is a count variable. I don't think this will change things that much though, as on it's own Problem BeH fits great. The other options would be to apply a gentel ridge push (e-1.05) to the diagnol of cov.ov, but I don't suspect this would change things much either. If need to could explore non-linear inequality constraint, but I have no indication tha these variables will work together.
 
 I predict the best way to proceede would be to look at AtL and cognitive development, maybe condition the model on Problem BeH and other variables of interst
 ----------------------------------------------------
@@ -31,4 +31,13 @@ First, I am going to fix the negative variances of all 4 "persist" indicators
 
 Summary: AtL and Prob does not play nice together 
 ----------------------------------------------------
+Two factor invaraince stages with AtL and Cog
 
+CONFIGURAL
+5.  Atl (PLBS) + Cog = converges normally - fit is great(RMSEA = 0.017-0.022; CFI = 0.992; TLI = 0.988, Chi=????) PASS
+WEAK (Equate the loadings across time)
+5.b  Atl (PLBS) + Cog = converges normally - fit is good(RMSEA = 0.039-0.044; CFI = 0.958; TLI = 0.944, Chi=???) PASS
+STRONG (Equte the means across time)
+5.c  Atl (PLBS) + Cog = converges normally - fit is bad(RMSEA = 0.110-0.114; CFI = 0.676; TLI = 0.601, Chi=???) Fail
+  Note. PPVT really wants to cross load. Not willing to make that sacrafice with a more simplistic model. Will try for partial invariance and/or switch to other way of defining AtL
+STRICT- Is pointless
