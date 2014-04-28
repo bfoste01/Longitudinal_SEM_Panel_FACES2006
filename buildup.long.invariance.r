@@ -1,6 +1,6 @@
 # All configural testing
 library(lavaan)
-# Problem BeH longitudinal configural
+# Problem BeH
 long.invar1 <- 'prob1  =~ R1BAGGR + R1BHYPER + R1BWITH
 prob2  =~ R2BAGGR + R2BHYPER + R2BWITH
 prob3  =~ R3BAGGR + R3BHYPER + R3BWITH
@@ -47,7 +47,7 @@ inspect(fit1, "cov.ov") # always good to look for negatives
 library(semTools)
 invariance3 <- measurementInvariance(long.invar1, data = FACES2006.subset)
 #----------------------------------------------------
-# AtL with PLBS configural
+# AtL 
 long.invar2 <- '
 atl1 =~ R1ATTUDE + R1PRSIST + R1MOTIVE
 atl2 =~ R2ATTUDE + R2PRSIST + R2MOTIVE
@@ -93,7 +93,7 @@ summary(fit2, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit2, "cov.lv") 
 inspect(fit2, "cov.ov") # always good to look for negatives
 #----------------------------------------------------
-# Cognitive configural
+# Cog
 long.invar3 <- '
 cog1 =~ A1PPVT4W + A1WJAPW + A1WJLWW
 cog2 =~ A2PPVT4W + A2WJAPW + A2WJLWW
@@ -139,7 +139,7 @@ summary(fit3, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit3, "cov.lv") 
 inspect(fit3, "cov.ov") # always good to look for negatives
 #----------------------------------------------------
-# parent and teacher PLBS
+# AtL (Parent and Teacher)
 long.invar4 <- '
 atl1 =~ L25*P1SSPAL + L26*R1SSRS + L27*R1TPLBS
 atl2 =~ L28*P2SSPAL + L29*R2SSRS + L30*R2TPLBS
@@ -180,12 +180,12 @@ R2TPLBS ~~ R3TPLBS
 R2TPLBS ~~ KR4TPLBS
 R3TPLBS ~~ KR4TPLBS
 '
-fit5 <- cfa(long.invar5, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE, meanstructure=TRUE) 
-summary(fit5, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
-inspect(fit5, "cov.lv") 
-inspect(fit5, "cov.ov") # always good to look for negatives
+fit4 <- cfa(long.invar4, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE, meanstructure=TRUE) 
+summary(fit4, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
+inspect(fit4, "cov.lv") 
+inspect(fit4, "cov.ov") # always good to look for negatives
 #----------------------------------------------------
-# AtL (PLBS) Cog configural 
+# AtL (PLBS) + Cog
 long.invar5 <- '
 atl1 =~ R1ATTUDE + R1PRSIST + R1MOTIVE
 atl2 =~ R2ATTUDE + R2PRSIST + R2MOTIVE
@@ -272,7 +272,7 @@ inspect(fit5, "cov.ov") # always good to look for negatives
 #library(semTools)
 #invariance5 <- measurementInvariance(long.invar5, data = FACES2006.subset)
 #---------------------------
-# AtL PLBS w/prob configural
+# AtL (PLBS) + Prob
 long.invar6 <- '
 atl1 =~ R1ATTUDE + R1PRSIST + R1MOTIVE
 atl2 =~ R2ATTUDE + R2PRSIST + R2MOTIVE
@@ -357,7 +357,7 @@ summary(fit6, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit6, "cov.lv") 
 inspect(fit6, "cov.ov") # always good to look for negatives
 #-------------------------------------
-# Problem with cog configural 
+# Prob + Cog
 long.invar7 <- '
 cog1 =~ A1PPVT4W + A1WJAPW + A1WJLWW
 cog2 =~ A2PPVT4W + A2WJAPW + A2WJLWW
@@ -442,7 +442,7 @@ summary(fit7, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit7, "cov.lv") 
 inspect(fit7, "cov.ov") # always good to look for negatives
 #------------------------------
-# AtL parent teahcer Cog configural
+# AtL (Parent and Teacher) + Cog
 long.invar8 <- '
 atl1 =~ L25*P1SSPAL + L26*R1SSRS + L27*R1TPLBS
 atl2 =~ L28*P2SSPAL + L29*R2SSRS + L30*R2TPLBS
@@ -527,7 +527,7 @@ summary(fit8, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit8, "cov.lv") 
 inspect(fit8, "cov.ov") # always good to look for negatives
 #----------------------------
-# AtL parent teacher Prob
+# AtL (Parent and Teacher) + Prob
 long.invar9 <- '
 atl1 =~ L25*P1SSPAL + L26*R1SSRS + L27*R1TPLBS
 atl2 =~ L28*P2SSPAL + L29*R2SSRS + L30*R2TPLBS
@@ -612,51 +612,23 @@ summary(fit9, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit9, "cov.lv") 
 inspect(fit9, "cov.ov") # always good to look for negatives
 #------------------------------------------------------
-# AtL parent teacher Prob
+# Testing for 3 factors
+# PLBS(AtL) + COG + PROB
 long.invar10 <- '
-atl1 =~ L25*P1SSPAL + L26*R1SSRS + L27*R1TPLBS
-atl2 =~ L28*P2SSPAL + L29*R2SSRS + L30*R2TPLBS
-atl3 =~ L31*P3PSSPAL + L32*R3SSRS + R33*R3TPLBS
-atl4 =~ L34*P4PSSPAL + L35*KR4SSRS + L36*KR4TPLBS
-
 cog1 =~ A1PPVT4W + A1WJAPW + A1WJLWW
 cog2 =~ A2PPVT4W + A2WJAPW + A2WJLWW
 cog3 =~ A3PPVT4W + A3WJAPW + A3WJLWW
 cog4 =~ A4PPVT4W + A4WJAPW + A4WJLWW
 
-P1SSPAL ~~ P1SSPAL
-R1SSRS ~~ R1SSRS
-R1TPLBS ~~ R1TPLBS
-P2SSPAL ~~ P2SSPAL
-R2SSRS ~~ R2SSRS
-R2TPLBS ~~ R2TPLBS
-P3PSSPAL ~~ P3PSSPAL
-R3SSRS ~~ R3SSRS
-R3TPLBS ~~ R3TPLBS
-P4PSSPAL ~~ P4PSSPAL
-KR4SSRS ~~ KR4SSRS
-KR4TPLBS ~~ KR4TPLBS
+prob1  =~ R1BAGGR + R1BHYPER + R1BWITH
+prob2  =~ R2BAGGR + R2BHYPER + R2BWITH
+prob3  =~ R3BAGGR + R3BHYPER + R3BWITH
+prob4  =~ KR4BAGGR + KR4BHYPE + KR4BWITH
 
-P1SSPAL ~~ P2SSPAL
-P1SSPAL ~~ P3PSSPAL
-P1SSPAL ~~ P4PSSPAL
-P2SSPAL ~~ P3PSSPAL
-P2SSPAL ~~ P4PSSPAL
-P3PSSPAL ~~ P4PSSPAL
-
-R1SSRS ~~ R2SSRS
-R1SSRS ~~ R3SSRS
-R1SSRS ~~ KR4SSRS
-R2SSRS ~~ R3SSRS
-R2SSRS ~~ KR4SSRS
-R3SSRS ~~ KR4SSRS
-
-R1TPLBS ~~ R2TPLBS
-R1TPLBS ~~ R3TPLBS
-R1TPLBS ~~ KR4TPLBS
-R2TPLBS ~~ R3TPLBS
-R2TPLBS ~~ KR4TPLBS
-R3TPLBS ~~ KR4TPLBS
+atl1 =~ L25*P1SSPAL + L26*R1SSRS + L27*R1TPLBS
+atl2 =~ L28*P2SSPAL + L29*R2SSRS + L30*R2TPLBS
+atl3 =~ L31*P3PSSPAL + L32*R3SSRS + R33*R3TPLBS
+atl4 =~ L34*P4PSSPAL + L35*KR4SSRS + L36*KR4TPLBS
 
 A1PPVT4W ~~ A1PPVT4W
 A1WJAPW ~~ A1WJAPW
@@ -691,11 +663,77 @@ A1WJLWW ~~ A4WJLWW
 A2WJLWW ~~ A3WJLWW
 A2WJLWW ~~ A4WJLWW
 A3WJLWW ~~ A4WJLWW
+
+R1BAGGR ~~ R1BAGGR
+R1BHYPER ~~ R1BHYPER
+R1BWITH ~~ R1BWITH
+R2BAGGR ~~ R2BAGGR
+R2BHYPER ~~ R2BHYPER
+R2BWITH ~~ R2BWITH
+R3BAGGR ~~ R3BAGGR
+R3BHYPER ~~ R3BHYPER
+R3BWITH ~~ R3BWITH
+KR4BAGGR ~~ KR4BAGGR
+KR4BHYPE ~~ KR4BHYPE
+KR4BWITH ~~ KR4BWITH
+
+R1BAGGR ~~ R2BAGGR
+R1BAGGR ~~ R3BAGGR
+R1BAGGR ~~ KR4BAGGR
+R2BAGGR ~~ R3BAGGR
+R2BAGGR ~~ KR4BAGGR
+R3BAGGR ~~ KR4BAGGR
+
+R1BHYPER ~~ R2BHYPER
+R1BHYPER ~~ R3BHYPER
+R1BHYPER ~~ KR4BHYPE
+R2BHYPER ~~ R3BHYPER
+R2BHYPER ~~ KR4BHYPE
+R3BHYPER ~~ KR4BHYPE
+
+R1BWITH ~~ R2BWITH
+R1BWITH ~~ R3BWITH
+R1BWITH ~~ KR4BWITH
+R2BWITH ~~ R3BWITH
+R2BWITH ~~ KR4BWITH
+R3BWITH ~~ KR4BWITH
+
+R1ATTUDE ~~ R1ATTUDE
+R1PRSIST ~~ R1PRSIST
+R1MOTIVE ~~ R1MOTIVE
+R2ATTUDE ~~ R2ATTUDE
+R2PRSIST ~~ R2PRSIST
+R2MOTIVE ~~ R2MOTIVE
+R3ATTUDE ~~ R3ATTUDE
+R3PRSIST ~~ R3PRSIST
+R3MOTIVE ~~ R3MOTIVE
+KR4ATUDE ~~ KR4ATUDE
+KR4PRSST ~~ KR4PRSST
+KR4MOTIV ~~ KR4MOTIV
+
+R1ATTUDE ~~ R2ATTUDE
+R1ATTUDE ~~ R3ATTUDE
+R1ATTUDE ~~ KR4ATUDE
+R2ATTUDE ~~ R3ATTUDE
+R2ATTUDE ~~ KR4ATUDE
+R3ATTUDE ~~ KR4ATUDE
+
+R1PRSIST ~~ R2PRSIST
+R1PRSIST ~~ R3PRSIST
+R1PRSIST ~~ KR4PRSST
+R2PRSIST ~~ R3PRSIST
+R2PRSIST ~~ KR4PRSST
+R3PRSIST ~~ KR4PRSST
+
+R1MOTIVE ~~ R2MOTIVE
+R1MOTIVE ~~ R3MOTIVE
+R1MOTIVE ~~ KR4MOTIV
+R2MOTIVE ~~ R3MOTIVE
+R2MOTIVE ~~ KR4MOTIV
+R3MOTIVE ~~ KR4MOTIV
 '
 fit10 <- cfa(long.invar10, missing = "FIML", estimator = "MLR", data = FACES2006.subset, std.lv=TRUE) 
 summary(fit10, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit10, "cov.lv") 
 inspect(fit10, "cov.ov") # always good to look for negatives
-#------------------------------------------------------------
-# Testing for 3 factors
-# PLBS(AtL) + COG + PROB
+#--------------------------------------------
