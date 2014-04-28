@@ -1,0 +1,8 @@
+Invariance Results
+----------------------------------------------------
+Configural
+All 3 constructs pass without issue
+Atl (PLBS) + Cog = converges normally - fit is great
+AtL (PLBS) + Prob BeH = fails to converge normally - negatives in cov.ov - fit ok to bad
+  Offending indicators: "persistent"" not playing nice - negative on all axis (might be too large to fix to 0)
+Prob + Cog = 
