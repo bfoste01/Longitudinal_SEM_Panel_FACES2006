@@ -1,3 +1,4 @@
+# All configural testing
 library(lavaan)
 # Problem BeH longitudinal configural
 long.invar1 <- 'prob1  =~ R1BAGGR + R1BHYPER + R1BWITH
@@ -45,6 +46,7 @@ inspect(fit1, "cov.lv")
 inspect(fit1, "cov.ov") # always good to look for negatives
 library(semTools)
 invariance3 <- measurementInvariance(long.invar1, data = FACES2006.subset)
+#----------------------------------------------------
 # AtL with PLBS configural
 long.invar2 <- '
 atl1 =~ R1ATTUDE + R1PRSIST + R1MOTIVE
@@ -90,7 +92,7 @@ fit2 <- cfa(long.invar2, missing = "FIML", estimator = "MLR", data = FACES2006.s
 summary(fit2, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit2, "cov.lv") 
 inspect(fit2, "cov.ov") # always good to look for negatives
-#-------------------------------------
+#----------------------------------------------------
 # Cognitive configural
 long.invar3 <- '
 cog1 =~ A1PPVT4W + A1WJAPW + A1WJLWW
@@ -136,7 +138,7 @@ fit3 <- cfa(long.invar3, missing = "FIML", estimator = "MLR", data = FACES2006.s
 summary(fit3, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit3, "cov.lv") 
 inspect(fit3, "cov.ov") # always good to look for negatives
-#----------------------------------
+#----------------------------------------------------
 # parent and teacher PLBS
 long.invar4 <- '
 atl1 =~ L25*P1SSPAL + L26*R1SSRS + L27*R1TPLBS
@@ -182,7 +184,7 @@ fit5 <- cfa(long.invar5, missing = "FIML", estimator = "MLR", data = FACES2006.s
 summary(fit5, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit5, "cov.lv") 
 inspect(fit5, "cov.ov") # always good to look for negatives
-#---------------------------------
+#----------------------------------------------------
 # AtL (PLBS) Cog configural 
 long.invar5 <- '
 atl1 =~ R1ATTUDE + R1PRSIST + R1MOTIVE
@@ -267,8 +269,8 @@ fit5 <- cfa(long.invar5, missing = "FIML", estimator = "MLR", data = FACES2006.s
 summary(fit5, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
 inspect(fit5, "cov.lv") 
 inspect(fit5, "cov.ov") # always good to look for negatives
-library(semTools)
-invariance5 <- measurementInvariance(long.invar5, data = FACES2006.subset)
+#library(semTools)
+#invariance5 <- measurementInvariance(long.invar5, data = FACES2006.subset)
 #---------------------------
 # AtL PLBS w/prob configural
 long.invar6 <- '
